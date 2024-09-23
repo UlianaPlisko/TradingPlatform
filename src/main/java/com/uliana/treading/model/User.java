@@ -2,10 +2,7 @@ package com.uliana.treading.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.uliana.treading.domain.USER_ROLE;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -21,6 +18,8 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @Embedded
+    private TwoFactorAuth twoFactorAuth = new TwoFactorAuth();
 
     private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
 }

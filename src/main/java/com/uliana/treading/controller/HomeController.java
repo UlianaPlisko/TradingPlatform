@@ -8,6 +8,11 @@ public class HomeController {
 
     @GetMapping
     public String home(){
-        return "welcome to treading platform";
+        return "welcome to trading platform";
+    }
+
+    @GetMapping("/api")
+    public String secure(){
+        return "welcome to trading platform Secure";
     }
 }
